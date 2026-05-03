@@ -191,7 +191,7 @@ def obtener_plantilla_por_tipo(tipo_centro):
     if "olla comun" in tipo:
         return "templates/acta_olla_comun.docx"
 
-    return "templates/acta_template.docx"
+    return RUTA_PLANTILLA
 
 #---generar tabla dinamica para junta directiva---
 def obtener_cargos_por_tipo(tipo_centro):
@@ -270,10 +270,6 @@ def generar_acta():
 
     if not seleccion:
         messagebox.showwarning("Advertencia", "Seleccione un centro de atención.")
-        return
-
-    if not os.path.exists(RUTA_PLANTILLA):
-        messagebox.showerror("Error", f"No se encontró la plantilla:\n{RUTA_PLANTILLA}")
         return
 
     os.makedirs(CARPETA_SALIDA, exist_ok=True)
